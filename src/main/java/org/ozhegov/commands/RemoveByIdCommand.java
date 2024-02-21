@@ -1,6 +1,7 @@
 package org.ozhegov.commands;
 
 import org.ozhegov.ExecutableCommand;
+import org.ozhegov.MainCollection;
 import org.ozhegov.basics.Dragon;
 
 public class RemoveByIdCommand implements ExecutableCommand {
@@ -13,9 +14,9 @@ public class RemoveByIdCommand implements ExecutableCommand {
     public void execute(String[] command) {
             boolean flag = false;
             int ID = Integer.parseInt(command[1]);
-            for(Dragon d: Dragon.getQueue()){
+            for(Dragon d: MainCollection.getQueue()){
                 if (d.getId()==ID){
-                    Dragon.getQueue().remove(d);
+                    MainCollection.getQueue().remove(d);
                     flag=true;
                     break;
                 }

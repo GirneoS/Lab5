@@ -1,6 +1,7 @@
 package org.ozhegov.commands;
 
 import org.ozhegov.ExecutableCommand;
+import org.ozhegov.MainCollection;
 import org.ozhegov.basics.Dragon;
 
 public class InfoCommand implements ExecutableCommand {
@@ -11,7 +12,7 @@ public class InfoCommand implements ExecutableCommand {
      */
     @Override
     public void execute(String[] command) {
-            System.out.println("Тип: PriorityQueue\nДата инициализации: " + Dragon.getInitDate() + "\nКоличество элементов: " + Dragon.getQueue().size());
+            System.out.println("Тип: PriorityQueue\nДата инициализации: " + MainCollection.getInitDate() + "\nКоличество элементов: " + MainCollection.getQueue().size());
             HistoryCommand.UpdateHistory("info");
     }
 

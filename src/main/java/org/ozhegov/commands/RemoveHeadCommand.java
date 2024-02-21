@@ -1,6 +1,7 @@
 package org.ozhegov.commands;
 
 import org.ozhegov.ExecutableCommand;
+import org.ozhegov.MainCollection;
 import org.ozhegov.basics.Dragon;
 
 public class RemoveHeadCommand implements ExecutableCommand {
@@ -10,10 +11,10 @@ public class RemoveHeadCommand implements ExecutableCommand {
      */
     @Override
     public void execute(String[] command) {
-            if(Dragon.getQueue().isEmpty()){
+            if(MainCollection.getQueue().isEmpty()){
                 System.out.println("\u001B[31m" + "Нельзя выполнить \"remove_head\", т. к. коллекция пустая!" + "\u001B[0m");
             }else {
-                System.out.println(Dragon.getQueue().poll());
+                System.out.println(MainCollection.getQueue().poll());
                 HistoryCommand.UpdateHistory("remove_head");
             }
     }

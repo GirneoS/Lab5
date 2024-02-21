@@ -1,6 +1,7 @@
 package org.ozhegov.commands;
 
 import org.ozhegov.ExecutableCommand;
+import org.ozhegov.MainCollection;
 import org.ozhegov.basics.Dragon;
 
 import java.io.File;
@@ -12,16 +13,16 @@ import java.nio.file.Files;
 public class SaveCommand implements ExecutableCommand {
 
     /**
-     * This method contains the logic for "save" command. Here the program saves the collection in file "Saved Collection".
+     * This method contains the logic for "save" command. Here the program saves the collection in file "SavedCollection".
      * @param command command with arguments from the console.
      */
     @Override
     public void execute(String[] command) {
-        if(validate(command)) {
-            if (Files.isWritable(new File("SavedCollection").toPath())){
-                try (PrintWriter writer = new PrintWriter(new FileWriter("SavedCollection"))) {
-                    for (Dragon d : Dragon.getQueue()) {
-                        writer.write(d.toString() + "\n");
+            if (Files.isWritable(new File(System.getenv("SAVE_DRAGON")).toPath())){
+                try (PrintWriter writer = new PrintWriter(new FileWriter(System.getenv("SAVE_DRAGON")))) {
+                    writer.write("name,age,id,wingspan,DragonType"+"\n");
+                    for (Dragon d : MainCollection.getQueue()) {
+                        writer.write(d.getName()+","+d.getAge()+","+d.getId()+","+d.getWingspan()+","+d.getType() + "\n");
                     }
                     HistoryCommand.UpdateHistory("save");
                 } catch (IOException e) {
@@ -31,7 +32,6 @@ public class SaveCommand implements ExecutableCommand {
                 System.out.println("\u001B[31m" + "У вас нет прав доступа к файлу сохранения!" + "\u001B[0m");
             }
         }
-    }
     /**
      * This method validates an arguments for "save" command.
      * @param command command with arguments from the console

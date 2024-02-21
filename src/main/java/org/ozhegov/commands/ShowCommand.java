@@ -1,17 +1,18 @@
 package org.ozhegov.commands;
 
 import org.ozhegov.ExecutableCommand;
+import org.ozhegov.MainCollection;
 import org.ozhegov.basics.Dragon;
 
 public class ShowCommand implements ExecutableCommand {
 
     /**
-     * This method contains the logic for "show" command. Here the program saves the collection in file "Saved Collection".
+     * This method contains the logic for "show" command. Here the program saves the collection in file "SavedCollection".
      * @param command command with arguments from the console.
      */
     @Override
     public void execute(String[] command) {
-        Dragon.getQueue().forEach(System.out::println);
+        MainCollection.getQueue().forEach(System.out::println);
         HistoryCommand.UpdateHistory("show");
     }
 

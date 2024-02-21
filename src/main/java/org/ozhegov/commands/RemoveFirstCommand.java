@@ -1,6 +1,7 @@
 package org.ozhegov.commands;
 
 import org.ozhegov.ExecutableCommand;
+import org.ozhegov.MainCollection;
 import org.ozhegov.basics.Dragon;
 
 public class RemoveFirstCommand implements ExecutableCommand {
@@ -11,10 +12,10 @@ public class RemoveFirstCommand implements ExecutableCommand {
      */
     @Override
     public void execute(String[] command) {
-            if(Dragon.getQueue().isEmpty()){
+            if(MainCollection.getQueue().isEmpty()){
                 System.out.println("\u001B[31m" + "Нельзя выполнить \"remove_first\", т. к. коллекция пустая!" + "\u001B[0m");
             }else {
-                Dragon.getQueue().remove();
+                MainCollection.getQueue().remove();
                 HistoryCommand.UpdateHistory("remove_first");
             }
     }

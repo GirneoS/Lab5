@@ -1,6 +1,7 @@
 package org.ozhegov.commands;
 
 import org.ozhegov.ExecutableCommand;
+import org.ozhegov.MainCollection;
 import org.ozhegov.basics.Dragon;
 
 public class ClearCommand implements ExecutableCommand {
@@ -11,10 +12,10 @@ public class ClearCommand implements ExecutableCommand {
      */
     @Override
     public void execute(String[] command) {
-            int sizeCollection = Dragon.getQueue().size();
+            int sizeCollection = MainCollection.getQueue().size();
             if(sizeCollection==0){System.out.println("\u001B[31m" + "Коллекция уже пустая!" + "\u001B[0m");}
             for(int i = 0;i<sizeCollection;i++){
-                Dragon.getQueue().remove();
+                MainCollection.getQueue().remove();
             }
             HistoryCommand.UpdateHistory("clear");
 

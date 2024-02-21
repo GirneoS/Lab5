@@ -1,6 +1,7 @@
 package org.ozhegov.commands;
 
 import org.ozhegov.ExecutableCommand;
+import org.ozhegov.MainCollection;
 import org.ozhegov.basics.Dragon;
 
 public class PrintDescendingCommand implements ExecutableCommand {
@@ -12,7 +13,7 @@ public class PrintDescendingCommand implements ExecutableCommand {
     @Override
     public void execute(String[] command) {
             var reverseOrder = "";
-            for (Dragon d : Dragon.getQueue()) {
+            for (Dragon d : MainCollection.getQueue()) {
                 reverseOrder = d +"\n"+ reverseOrder;
             }
             System.out.println(reverseOrder);

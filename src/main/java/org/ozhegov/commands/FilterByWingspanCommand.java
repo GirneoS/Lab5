@@ -1,6 +1,7 @@
 package org.ozhegov.commands;
 
 import org.ozhegov.ExecutableCommand;
+import org.ozhegov.MainCollection;
 import org.ozhegov.basics.Dragon;
 
 public class FilterByWingspanCommand implements ExecutableCommand {
@@ -13,7 +14,7 @@ public class FilterByWingspanCommand implements ExecutableCommand {
     public void execute(String[] command) {
             boolean flag = false;
             float goal = Float.parseFloat(command[1]);
-            for (Dragon d : Dragon.getQueue()) {
+            for (Dragon d : MainCollection.getQueue()) {
                 if (d.getWingspan() == goal) {
                     System.out.println(d);
                     flag = true;

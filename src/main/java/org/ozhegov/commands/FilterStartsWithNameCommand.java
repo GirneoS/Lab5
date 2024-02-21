@@ -1,6 +1,7 @@
 package org.ozhegov.commands;
 
 import org.ozhegov.ExecutableCommand;
+import org.ozhegov.MainCollection;
 import org.ozhegov.basics.Dragon;
 
 public class FilterStartsWithNameCommand implements ExecutableCommand {
@@ -10,7 +11,7 @@ public class FilterStartsWithNameCommand implements ExecutableCommand {
             boolean flag = false;
             String subName = command[1];
 
-            for(Dragon d: Dragon.getQueue()){
+            for(Dragon d: MainCollection.getQueue()){
                 if(d.getName().startsWith(subName)){
                     System.out.println(d);
                     flag = true;

@@ -1,6 +1,7 @@
 package org.ozhegov.commands;
 
 import org.ozhegov.ExecutableCommand;
+import org.ozhegov.MainCollection;
 import org.ozhegov.basics.Coordinates;
 import org.ozhegov.basics.Dragon;
 import org.ozhegov.basics.DragonHead;
@@ -172,7 +173,7 @@ public class AddCommand implements ExecutableCommand {
                         System.out.println("\u001B[31m" + "Неправильный формат ввода количества зубов!" + "\u001B[0m");
                     }
                 }
-                Dragon.getQueue().add(new Dragon(nameField, new Coordinates(x, y), ageField, wingspanField, speakingField, typeField, new DragonHead(headSize, headEyesCount, headToothCount)));
+                MainCollection.getQueue().add(new Dragon(nameField, new Coordinates(x, y), ageField, wingspanField, speakingField, typeField, new DragonHead(headSize, headEyesCount, headToothCount)));
                 HistoryCommand.UpdateHistory("add Dragon");
             } else {
                 System.out.println("\u001B[31m" + "В коллекцию можно добавить только объекты типа данных \"Dragon\"!" + "\u001B[0m");
