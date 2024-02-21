@@ -10,9 +10,7 @@ public class ExitCommand implements ExecutableCommand {
      */
     @Override
     public void execute(String[] command) {
-        if(validate(command)){
-            System.exit(0);
-        }
+        System.exit(0);
     }
 
     /**

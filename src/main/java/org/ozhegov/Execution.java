@@ -38,8 +38,10 @@ public class Execution {
      * @param command the entered by user command with arguments.
      */
     public static void executeCommand(String[] command){
-        if(Execution.commands.containsKey(command[0])){
-            Execution.commands.get(command[0]).execute(command);
+        if(commands.containsKey(command[0])){
+            if(commands.get(command[0]).validate(command)) {
+                commands.get(command[0]).execute(command);
+            }
         }else{
             System.out.println("\u001B[31m" + "Команда "+command[0]+" не найдена!" + "\u001B[0m");
         }

@@ -10,7 +10,6 @@ public class HelpCommand implements ExecutableCommand {
      */
     @Override
     public void execute(String[] command) {
-        if(validate(command)){
             System.out.println("""
             help : вывести справку по доступным командам
             info : вывести в стандартный поток вывода информацию о коллекции (тип, дата инициализации, количество элементов и т.д.)
@@ -29,7 +28,6 @@ public class HelpCommand implements ExecutableCommand {
             filter_starts_with_name name : вывести элементы, значение поля name которых начинается с заданной подстроки
             print_descending : вывести элементы коллекции в порядке убывания""");
             HistoryCommand.UpdateHistory("help");
-        }
     }
 
     /**

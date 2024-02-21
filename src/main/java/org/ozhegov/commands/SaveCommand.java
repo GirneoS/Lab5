@@ -18,8 +18,8 @@ public class SaveCommand implements ExecutableCommand {
     @Override
     public void execute(String[] command) {
         if(validate(command)) {
-            if (Files.isWritable(new File("Saved Collection").toPath())){
-                try (PrintWriter writer = new PrintWriter(new FileWriter("Saved Collection"))) {
+            if (Files.isWritable(new File("SavedCollection").toPath())){
+                try (PrintWriter writer = new PrintWriter(new FileWriter("SavedCollection"))) {
                     for (Dragon d : Dragon.getQueue()) {
                         writer.write(d.toString() + "\n");
                     }

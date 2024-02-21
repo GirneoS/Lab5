@@ -16,7 +16,6 @@ public class AddCommand implements ExecutableCommand {
      */
     @Override
     public void execute(String[] command) {
-        if(validate(command)){
             if (command[1].equals("Dragon")) {
                 Scanner scanner = new Scanner(System.in);
 
@@ -179,7 +178,7 @@ public class AddCommand implements ExecutableCommand {
                 System.out.println("\u001B[31m" + "В коллекцию можно добавить только объекты типа данных \"Dragon\"!" + "\u001B[0m");
             }
 
-        }
+
     }
 
     /**

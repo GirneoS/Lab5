@@ -7,7 +7,6 @@ public class FilterStartsWithNameCommand implements ExecutableCommand {
 
     @Override
     public void execute(String[] command) {
-        if(validate(command)){
             boolean flag = false;
             String subName = command[1];
 
@@ -20,7 +19,6 @@ public class FilterStartsWithNameCommand implements ExecutableCommand {
             if(!flag){
                 System.out.println("\u001B[31m" + "В коллекции нет драконов, у которых имя начинается с указанной подстроки!" + "\u001B[0m");
             }else{HistoryCommand.UpdateHistory("filter_starts_with_name");}
-        }
     }
 
     @Override

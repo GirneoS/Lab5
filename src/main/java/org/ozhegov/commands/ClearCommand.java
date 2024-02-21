@@ -11,14 +11,13 @@ public class ClearCommand implements ExecutableCommand {
      */
     @Override
     public void execute(String[] command) {
-        if(validate(command)) {
             int sizeCollection = Dragon.getQueue().size();
             if(sizeCollection==0){System.out.println("\u001B[31m" + "Коллекция уже пустая!" + "\u001B[0m");}
             for(int i = 0;i<sizeCollection;i++){
                 Dragon.getQueue().remove();
             }
             HistoryCommand.UpdateHistory("clear");
-        }
+
     }
 
     /**

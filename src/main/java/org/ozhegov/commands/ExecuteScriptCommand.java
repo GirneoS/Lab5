@@ -13,7 +13,6 @@ public class ExecuteScriptCommand implements ExecutableCommand {
      */
     @Override
     public void execute(String[] command) {
-        if(validate(command)){
             try(BufferedReader reader = new BufferedReader(new FileReader(command[1]))){
                 var line = reader.readLine();
                 while(line!=null){
@@ -24,7 +23,6 @@ public class ExecuteScriptCommand implements ExecutableCommand {
                 e.printStackTrace();
             }
             HistoryCommand.UpdateHistory("execute_script");
-        }
     }
 
     /**

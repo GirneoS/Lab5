@@ -11,10 +11,8 @@ public class ShowCommand implements ExecutableCommand {
      */
     @Override
     public void execute(String[] command) {
-        if(validate(command)) {
-            Dragon.getQueue().forEach(System.out::println);
-            HistoryCommand.UpdateHistory("show");
-        }
+        Dragon.getQueue().forEach(System.out::println);
+        HistoryCommand.UpdateHistory("show");
     }
 
     /**

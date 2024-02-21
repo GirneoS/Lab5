@@ -11,7 +11,6 @@ public class RemoveByIdCommand implements ExecutableCommand {
      */
     @Override
     public void execute(String[] command) {
-        if(validate(command)){
             boolean flag = false;
             int ID = Integer.parseInt(command[1]);
             for(Dragon d: Dragon.getQueue()){
@@ -26,7 +25,6 @@ public class RemoveByIdCommand implements ExecutableCommand {
             }else{
                 HistoryCommand.UpdateHistory("remove_by_id");
             }
-        }
     }
 
     /**

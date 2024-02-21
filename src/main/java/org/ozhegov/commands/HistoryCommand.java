@@ -46,10 +46,8 @@ public class HistoryCommand implements ExecutableCommand {
      */
     @Override
     public void execute(String[] command) {
-        if(validate(command)){
             AddHistoryInHistory();
             PrintHistory();
-        }
     }
 
     /**

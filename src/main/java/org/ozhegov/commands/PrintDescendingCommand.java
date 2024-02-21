@@ -11,14 +11,12 @@ public class PrintDescendingCommand implements ExecutableCommand {
      */
     @Override
     public void execute(String[] command) {
-        if(validate(command)) {
             var reverseOrder = "";
             for (Dragon d : Dragon.getQueue()) {
                 reverseOrder = d +"\n"+ reverseOrder;
             }
             System.out.println(reverseOrder);
             HistoryCommand.UpdateHistory("print_descending");
-        }
     }
 
     /**

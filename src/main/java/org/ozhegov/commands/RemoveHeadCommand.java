@@ -10,14 +10,12 @@ public class RemoveHeadCommand implements ExecutableCommand {
      */
     @Override
     public void execute(String[] command) {
-        if(validate(command)){
             if(Dragon.getQueue().isEmpty()){
                 System.out.println("\u001B[31m" + "Нельзя выполнить \"remove_head\", т. к. коллекция пустая!" + "\u001B[0m");
             }else {
                 System.out.println(Dragon.getQueue().poll());
                 HistoryCommand.UpdateHistory("remove_head");
             }
-        }
     }
     /**
      * This method validates an arguments for "remove_head" command.

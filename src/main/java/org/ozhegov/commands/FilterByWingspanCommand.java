@@ -11,7 +11,6 @@ public class FilterByWingspanCommand implements ExecutableCommand {
      */
     @Override
     public void execute(String[] command) {
-        if(validate(command)){
             boolean flag = false;
             float goal = Float.parseFloat(command[1]);
             for (Dragon d : Dragon.getQueue()) {
@@ -24,7 +23,6 @@ public class FilterByWingspanCommand implements ExecutableCommand {
                 System.out.println("\u001B[31m" + "В коллекции нет драконов с указанным размахом крыльев!" + "\u001B[0m");
             }else{HistoryCommand.UpdateHistory("filter_by_wingspan");}
 
-        }
     }
 
     /**

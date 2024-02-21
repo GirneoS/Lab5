@@ -11,14 +11,12 @@ public class RemoveFirstCommand implements ExecutableCommand {
      */
     @Override
     public void execute(String[] command) {
-        if(validate(command)){
             if(Dragon.getQueue().isEmpty()){
                 System.out.println("\u001B[31m" + "Нельзя выполнить \"remove_first\", т. к. коллекция пустая!" + "\u001B[0m");
             }else {
                 Dragon.getQueue().remove();
                 HistoryCommand.UpdateHistory("remove_first");
             }
-        }
     }
 
     /**

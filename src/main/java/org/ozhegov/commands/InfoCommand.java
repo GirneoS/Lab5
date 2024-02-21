@@ -11,10 +11,8 @@ public class InfoCommand implements ExecutableCommand {
      */
     @Override
     public void execute(String[] command) {
-        if(validate(command)) {
             System.out.println("Тип: PriorityQueue\nДата инициализации: " + Dragon.getInitDate() + "\nКоличество элементов: " + Dragon.getQueue().size());
             HistoryCommand.UpdateHistory("info");
-        }
     }
 
     /**
