@@ -28,11 +28,6 @@ public class Dragon implements Comparable<Dragon>{
     private final DragonType type; //Поле может быть null
     private final DragonHead head;
 
-
-
-
-
-
     public Dragon(String name, Coordinates coordinates, long age, Float wingspan, boolean speaking, DragonType type, DragonHead head) {
         while(true) {
             int ID = new Random().nextInt(998) + 1;
@@ -73,11 +68,6 @@ public class Dragon implements Comparable<Dragon>{
         this.type = type;
         this.head = head;
     }
-
-
-
-
-
 
 
     public int getId() {

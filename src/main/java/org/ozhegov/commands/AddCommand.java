@@ -9,6 +9,7 @@ import org.ozhegov.basics.DragonType;
 
 import java.util.Arrays;
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 public class AddCommand implements ExecutableCommand {
     /**
@@ -20,14 +21,15 @@ public class AddCommand implements ExecutableCommand {
             if (command[1].equals("Dragon")) {
                 Scanner scanner = new Scanner(System.in);
 
-                System.out.print("Введите имя нового дракона: ");
-                String nameField = scanner.nextLine();
+                String nameField;
                 while (true) {
+                    System.out.print("Введите имя нового дракона: ");
+                     nameField = scanner.nextLine();
                     if (nameField.equals("") || nameField.equals(" ")) {
                         System.out.println("\u001B[31m" + "Введенное имя не должно быть пустым!" + "\u001B[0m");
-                        System.out.print("Введите имя нового дракона: ");
-                        nameField = scanner.nextLine();
-                    } else {
+                    } else if (!Pattern.matches("[a-zA-Z]+|[а-яА-Я]+",nameField)){
+                        System.out.println("\u001B[31m" + "Введенное имя должно состоять только из букв!" + "\u001B[0m");
+                    }else {
                         break;
                     }
                 }
@@ -96,7 +98,7 @@ public class AddCommand implements ExecutableCommand {
                                 break;
                             }
                         } catch (NumberFormatException e) {
-                            System.out.println("\u001B[31m" + "Размах крыльев дракона должен быть введен числом!" + "\u001B[0m");
+                            System.out.println("\u001B[31m" + "Размах крыльев дракона должен быть введен в формате десятичной дроби!" + "\u001B[0m");
                         }
                     }else{
                         wingspanField=null;
@@ -144,7 +146,7 @@ public class AddCommand implements ExecutableCommand {
                         headSize = Long.parseLong(scanner.nextLine());
                         break;
                     }catch(NumberFormatException e){
-                        System.out.println("\u001B[31m" + "Размер головы должен быть введен числом!" + "\u001B[0m");
+                        System.out.println("\u001B[31m" + "Размер головы должен быть введен целым числом!" + "\u001B[0m");
                     }
                 }
                 Float headEyesCount;
@@ -159,7 +161,7 @@ public class AddCommand implements ExecutableCommand {
                         }
                         break;
                     }catch(NumberFormatException e){
-                        System.out.println("\u001B[31m" + "Неправильный формат ввода количества глаз!" + "\u001B[0m");
+                        System.out.println("\u001B[31m" + "Количество глаз должно быть введено в формате десятичной дроби!" + "\u001B[0m");
                     }
                 }
 
@@ -170,7 +172,7 @@ public class AddCommand implements ExecutableCommand {
                         headToothCount = Float.parseFloat(scanner.nextLine());
                         break;
                     }catch(NumberFormatException e){
-                        System.out.println("\u001B[31m" + "Неправильный формат ввода количества зубов!" + "\u001B[0m");
+                        System.out.println("\u001B[31m" + "Количество зубов должно быть введено в формате десятичной дроби!" + "\u001B[0m");
                     }
                 }
                 MainCollection.getQueue().add(new Dragon(nameField, new Coordinates(x, y), ageField, wingspanField, speakingField, typeField, new DragonHead(headSize, headEyesCount, headToothCount)));

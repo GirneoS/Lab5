@@ -20,7 +20,7 @@ public class SaveCommand implements ExecutableCommand {
     public void execute(String[] command) {
             if (Files.isWritable(new File(System.getenv("SAVE_DRAGON")).toPath())){
                 try (PrintWriter writer = new PrintWriter(new FileWriter(System.getenv("SAVE_DRAGON")))) {
-                    writer.write("name,age,id,wingspan,DragonType"+"\n");
+                    writer.write("name,age,id,wingspan,DragonType"+"\nS");
                     for (Dragon d : MainCollection.getQueue()) {
                         writer.write(d.getName()+","+d.getAge()+","+d.getId()+","+d.getWingspan()+","+d.getType() + "\n");
                     }
